@@ -4,7 +4,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'APP FLUTTER ',
+      title: 'Text Fiel Focus hi ',
       home: MyCustomForm(),
     );
   }
@@ -36,10 +36,10 @@ class _MyCustomFormState extends State<MyCustomForm> {
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text('Alert Dialog'),
-          content: Text('This is an alert!'),
+          content: Text('Esta es una alerta'),
           actions: [
             TextButton(
-              child: Text('OK'),
+              child: Text('cerrar'),
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -58,11 +58,15 @@ class _MyCustomFormState extends State<MyCustomForm> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Text Field Focus'),
+        title: Text('APP FLUTTER'),
+      
+        
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(
               height: 250.0,
@@ -87,24 +91,28 @@ class _MyCustomFormState extends State<MyCustomForm> {
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 16.0),
             ),
+            Expanded(
+              child: Container(),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                FloatingActionButton(
+                  onPressed: exitApp,
+                  tooltip: 'Exit App',
+                  child: Icon(Icons.exit_to_app),
+                ),
+                SizedBox(width: 16.0),
+                FloatingActionButton(
+                  onPressed: showAlert,
+                  tooltip: 'Show Alert',
+                  child: Icon(Icons.warning),
+                   backgroundColor: Colors.red,
+                ),
+              ],
+            ),
           ],
         ),
-      ),
-      floatingActionButton: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          FloatingActionButton(
-            onPressed: exitApp,
-            tooltip: 'Exit App',
-            child: Icon(Icons.exit_to_app),
-          ),
-          SizedBox(height: 16.0),
-          FloatingActionButton(
-            onPressed: showAlert,
-            tooltip: 'Show Alert',
-            child: Icon(Icons.warning),
-          ),
-        ],
       ),
     );
   }
